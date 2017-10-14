@@ -10,4 +10,9 @@
    failed to specify the function as a 'friend' of the class. Not that I'm an
    expert, but I think the debugging messages i received were misleading.
 
-3. 
+3. The comparison operators were all overloaded without any trouble,
+   but every instance of 'git push' requires me to enter a username and 
+   password and it's really annoying. I spent like an hour generating and
+   storing an RSA key in my ssh agent, and then I still go through this???
+
+4. 
