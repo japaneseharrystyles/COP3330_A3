@@ -15,4 +15,60 @@
    password and it's really annoying. I spent like an hour generating and
    storing an RSA key in my ssh agent, and then I still go through this???
 
-4. 
+4. I decided the best way to go about overloading the subtraction operator
+   was to keep the function definition simple, but to increase the capabilites
+   of my helper function 'simplify()'. Essentially I implemented a basic carry
+   system. The danger of borrowing was overborrowing, because it seemed 
+   inefficient to check in our distance's foot, yard, and mile data when 
+   trying to carry. Instead, the subtraction operator itself implements
+   a safety net against overborrowing by comparing the two operands prior to
+   the instantiation of the operation.
+
+5. To test my subtraction, I kept attempting to perform 2m - 1m, 1"
+   I kept getting a result of 1m and 11 inches, which means the inch unit
+   correctly borrowed but none of the other units borrowed. I found this 
+   very confusing since the definition of these routines was nearly identical.
+   It turned out that I had used a comparison operator in the 'foot' borrowing
+   subroutine (== instead of =) which makes sense, the foot value after the 
+   inch value borrowed from it should have been -1, but since I evaluated 
+   foot == foot + 3 the value in foot probably changed to false, or ZERO.
+
+6. I'm moving onto the increment and decrement functions now, and this 
+   isn't a bug, but there is no way these last 4 functions cause as many 
+   issues as the first 90% of the project caused, so I need to stretch it.
+   I usually start by trying to handwrite my code to simulate a classroom
+   exam environment, but I have actually no idea where to begin for
+   incrementation and decrementation.
+
+7. I tried to declare the postfix and prefix operators in the cluster with
+   my other overloaded operators, but since they are not 'friend' functions
+   but rather actual member functions of the class, they could not be 
+   defined without any access specifier (public: since they need to be called
+   by the driver).
+
+8. I was uncertain as to why or how these operators are interpretted to have
+   no parameters and how they are distinguished from one another. From what I
+   understand now, c++ has a fake int value called a dummy variable to help
+   differentiate between postfix and prefix.
+
+9. I also have to acknowledge my simplify function for literally carrying 
+   every other function. It makes defining the operators a breeze.
+   Maybe it would've been worth the extra effort to include a check system 
+   in my simplify() function. What I had in mind was a precursor to carrying
+   units that checked the larger unit values to see if a correction of negative
+   values was possible, and also allowing the exclusion of further checking
+   for negatives in other funcitons, such as the subtraction operator.
+   We would've also been able to create an object parameterized as
+   (1m, -100y, 20ft, 100in) by just borrowing from the mile to correct our 
+   negative yard value. It would've been good practice but it's a busy week
+   for me and I'm 99.9% sure that defining this would be cake.
+
+10. My multiplication function didn't work for a second because I forgot 
+    to call 'simplify()' but it was actually easier to visually confirm 
+    the functionality of multiply without unit conversion.
+
+11. Not required, but I haven't made any commits to git in a really long
+    time. In my last project, I had to redefine a LOT of functions because
+    of an assumption that I would be able to make leap year conversions
+    with little trouble. This is why frequent commits prove useful, so I 
+    need to habituate that. 

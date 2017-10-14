@@ -4,16 +4,25 @@ class Distance{
 
 /*****  Overloaded Operators *****/
 
-  friend std::ostream& operator << (std::ostream& os, const Distance& d);
-  friend std::istream& operator >> (std::istream& is, Distance& d);
-  friend bool operator == (const Distance& d1, const Distance& d2);
-  friend bool operator != (const Distance& d1, const Distance& d2);
-  friend bool operator < (const Distance& d1, const Distance& d2);
-  friend bool operator > (const Distance& d1, const Distance& d2);
-  friend bool operator <= (const Distance& d1, const Distance& d2);
-  friend bool operator >= (const Distance& d1, const Distance& d2);
+//      insertion & extraction
+  friend std::ostream& operator << (std::ostream&, const Distance&);
+  friend std::istream& operator >> (std::istream&, Distance&);
 
-  public:
+//      comparison operators
+  friend bool operator == (const Distance&, const Distance&);
+  friend bool operator != (const Distance&, const Distance&);
+  friend bool operator < (const Distance&, const Distance&);
+  friend bool operator > (const Distance&, const Distance&);
+  friend bool operator <= (const Distance&, const Distance&);
+  friend bool operator >= (const Distance&, const Distance&);
+
+//      add, subtract, multiply
+  friend Distance operator + (const Distance&, const Distance&);
+  friend Distance operator - (const Distance&, const Distance&);
+  friend Distance operator * (const Distance&, int);
+
+
+    public:
 
 /*****  Class Constructors  *****/
 
@@ -21,10 +30,17 @@ class Distance{
   Distance(int);
   Distance(int, int, int, int);
 
+/*****  Increment/Decrement  ****/
 
-  void Check();
+//       prefix
+  Distance& operator ++ ();
+  Distance& operator -- ();
 
-  private:
+//       postfix
+  Distance operator ++ (int);
+  Distance operator -- (int);
+
+    private:
 
 /*****  Private Member Data  *****/
 
