@@ -1,5 +1,17 @@
+#include <iostream>
 
 class Distance{
+
+/*****  Overloaded Operators *****/
+
+  friend std::ostream& operator << (std::ostream& os, const Distance& d);
+  friend std::istream& operator >> (std::istream& is, Distance& d);
+  friend bool operator == (const Distance& d1, const Distance& d2);
+  friend bool operator != (const Distance& d1, const Distance& d2);
+  friend bool operator < (const Distance& d1, const Distance& d2);
+  friend bool operator > (const Distance& d1, const Distance& d2);
+  friend bool operator <= (const Distance& d1, const Distance& d2);
+  friend bool operator >= (const Distance& d1, const Distance& d2);
 
   public:
 
@@ -8,6 +20,7 @@ class Distance{
   Distance();
   Distance(int);
   Distance(int, int, int, int);
+
 
   void Check();
 
@@ -23,4 +36,10 @@ class Distance{
 /*****  Tristen's Functions  *****/
 
   void simplify();
-};
+  
+}
+
+
+
+
+;
