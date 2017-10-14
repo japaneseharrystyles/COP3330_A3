@@ -1,0 +1,13 @@
+1. For starters, I just spent an hour trying to set this directory up as a 
+   Git repository, pain in the ***
+
+2. I decided to go through the functions sequentially, so next I worked on 
+   overloading the insertion and extraction operators. This took forever.
+   Repeatedly ran into an error saying the types 'istream' and 'ostream'
+   were not a member of namespace std. I updated my makefile to compile in
+   c++ 11, I added various libraries and tried using namespace std on my code
+   (which I hate). I checked some c++ references and finally realized that I
+   failed to specify the function as a 'friend' of the class. Not that I'm an
+   expert, but I think the debugging messages i received were misleading.
+
+3. 
